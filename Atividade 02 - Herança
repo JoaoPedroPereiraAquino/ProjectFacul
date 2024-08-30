@@ -1,0 +1,128 @@
+public class Funcionario {
+    private String nome;
+    protected double salario;
+
+
+    public Funcionario(String nome, double salario) {
+        this.nome = nome;
+        this.salario = salario;
+    }
+
+
+    public String getNome() {
+        return nome;
+    }
+
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+
+    public double getSalario() {
+        return salario;
+    }
+
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+
+    public void exibirDetalhes() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Salário: R$ " + salario);
+    }
+}
+
+------------------------------------------------------------------------------------------------------
+
+public class Gerente extends Funcionario {
+    private String departamento;
+
+
+    public Gerente(String nome, double salario, String departamento) {
+        super(nome, salario);
+        this.departamento = departamento;
+    }
+
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
+
+    public void exibirDetalhes() {
+        super.exibirDetalhes();
+        System.out.println("Departamento: " + departamento);
+    }
+
+
+    public void aumentarSalario(double percentual) {
+        double aumento = getSalario() * percentual / 100;
+        setSalario(getSalario() + aumento);
+    }
+}
+
+---------------------------------------------------------------------------------------------------------
+public class Estagiario extends Funcionario {
+    private int duracaoEstagio;
+
+
+    public Estagiario(String nome, double salario, int duracaoEstagio) {
+        super(nome, salario);
+        this.duracaoEstagio = duracaoEstagio;
+    }
+
+
+    public int getDuracaoEstagio() {
+        return duracaoEstagio;
+    }
+
+
+    public void setDuracaoEstagio(int duracaoEstagio) {
+        this.duracaoEstagio = duracaoEstagio;
+    }
+
+
+    public void exibirDetalhes() {
+        super.exibirDetalhes();
+        System.out.println("Duração do estágio: " + duracaoEstagio + " meses");
+    }
+
+
+    public void renovarEstagio(int meses) {
+        this.duracaoEstagio += meses;
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------
+public class Empresa {
+  public static void main(String[] args) {
+      Gerente gerente = new Gerente("Ana Souza", 12000.00, "Financeiro");
+      Estagiario estagiario = new Estagiario("Carlos Lima", 2000.00, 6);
+
+
+      System.out.println("Detalhes do Gerente:");
+      gerente.exibirDetalhes();
+
+
+      System.out.println("\nDetalhes do Estagiário:");
+      estagiario.exibirDetalhes();
+
+
+      System.out.println("\nAumentando o salário do gerente em 10%...");
+      gerente.aumentarSalario(10);
+      gerente.exibirDetalhes();
+
+
+      System.out.println("\nRenovando o estágio do estagiário por 3 meses...");
+      estagiario.renovarEstagio(3);
+      estagiario.exibirDetalhes();
+  }
+}
