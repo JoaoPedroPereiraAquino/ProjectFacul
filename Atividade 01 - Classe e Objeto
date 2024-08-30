@@ -1,0 +1,91 @@
+public class Livro{
+    private String titulo;
+    private String autor;
+    private int anoPublicacao;
+    private boolean disponivel;
+   
+    public Livro(String titulo, String autor, int anoPublicacao, boolean disponivel) {
+        this.titulo = titulo;
+        this.autor = autor ;
+        this.anoPublicacao = anoPublicacao;
+        this.disponivel = disponivel;
+    }
+
+
+    public String gettitulo() {
+        return titulo;
+    }
+    public void settitulo() {
+        this.titulo = titulo;
+    }
+
+
+    public String getautor() {
+        return autor;
+    }
+    public void setautor() {
+        this.autor = autor;
+    }
+    public int getanoPlublicacao() {
+        return anoPublicacao;
+    }
+    public void setanoPublicacao() {
+        this.anoPublicacao = anoPublicacao;
+    }
+    public boolean getdisponivel(){
+      return disponivel;  
+    }
+    public void setdisponivil() {
+        this.disponivel = disponivel;
+    }
+
+
+public void exibirDetalhes(){
+    System.out.println("titulo: " + titulo);
+    System.out.println("autor: " + autor);
+    System.out.println("anoPublicacao: " + anoPublicacao + "\n");
+   
+
+
+}
+public void emprestarLivros() {
+    if (disponivel) {
+        disponivel = false;
+        System.out.println("O livro "+ titulo + " foi emprestado.\n ");
+
+
+    }
+    else {
+        System.out.println("O livro " + titulo + " esta indisponivel.\n ");
+    }
+}
+public void devolverLivro() {
+    disponivel = true;
+    System.out.println("O livro " + titulo + " foi devolvido.\n ");
+}
+
+
+
+
+}
+-----------------------------------------------------------------------------------------------------
+
+public class Biblioteca {
+    public static void main(String[] args) {
+
+
+Livro livro1 = new Livro("João eo pé de feijão", "João Pedro", 1999, true);
+Livro livro2 = new Livro("joão e Maria", "João Pedro", 1992, false);
+
+
+livro1.exibirDetalhes();
+livro2.exibirDetalhes();
+
+
+livro1.emprestarLivros();
+livro1.emprestarLivros();
+
+
+livro1.devolverLivro();
+  }
+}
