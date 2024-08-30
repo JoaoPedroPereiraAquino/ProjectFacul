@@ -1,0 +1,46 @@
+public class main {
+    public static void main(String[] args) {
+        Animal animal = new Animal("Animal");
+        Pato pato = new Pato("Donald");
+
+
+        animal.fazerSom(); // Saida: O animal faz um som
+        pato.fazerSom();   // Saida: O pato faz quack
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------
+
+class Animal {
+    // Atributo nome
+    protected String nome;
+
+
+    // Construtor da classe Animal
+    public Animal(String nome) {
+        this.nome = nome;
+    }
+
+
+    // Metodo fazerSom
+    public void fazerSom() {
+        System.out.println("O animal faz um som");
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------------
+
+class Pato extends Animal {
+
+
+    // Construtor da classe Pato
+    public Pato(String nome) {
+        super(nome);
+    }
+
+
+    // Sobrescrevendo o metodo fazerSom sem usar a anotacao @Override
+    public void fazerSom() {
+        System.out.println("O pato faz quack");
+    }
+}
