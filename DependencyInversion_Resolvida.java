@@ -1,4 +1,4 @@
-public class DependencyInversionResolved {
+public class DependencyInversion_Resolvida {
     public static void main(String[] args) {
         Device bulb = new LightBulb();
         Switch lightSwitch = new Switch(bulb);
