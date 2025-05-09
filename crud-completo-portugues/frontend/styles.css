@@ -1,0 +1,6 @@
+body { font-family: Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; }
+.card { border-radius: 1rem; }
+.form-control { border-radius: .5rem; }
+.table { margin-bottom: 0; }
+.btn { border-radius: .5rem; }
+@media (max-width: 576px) { .card-header h2 { font-size: 1.5rem; } }
